@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AdminPanelActivity">
+
+    <EditText
+        android:id="@+id/edtQuizName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter quiz name"/>
+
+    <Spinner
+        android:id="@+id/difficultySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnPickDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick Date"/>
+
+    <Button
+        android:id="@+id/btnPickTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick Time"/>
+
+<!--    <EditText-->
+<!--        android:id="@+id/edtDuration"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Enter duration in minutes"-->
+<!--        android:inputType="number"/>-->
+    <EditText
+        android:id="@+id/edtQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter the question"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/edtOption1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Option 1"/>
+
+    <EditText
+        android:id="@+id/edtOption2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Option 2"/>
+
+    <EditText
+        android:id="@+id/edtOption3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Option 3"/>
+
+    <EditText
+        android:id="@+id/edtOption4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Option 4"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select the correct answer:"
+        android:padding="10dp"
+        android:textColor="@color/black"/>
+
+    <RadioGroup
+        android:id="@+id/correctOptionRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/option1RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option 1"/>
+        <RadioButton
+            android:id="@+id/option2RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option 2"/>
+        <RadioButton
+            android:id="@+id/option3RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option 3"/>
+        <RadioButton
+            android:id="@+id/option4RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option 4"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnSaveQuiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Question"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/questionsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <Button
+        android:id="@+id/btnAddQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:text="Add another question"/>
+    <Button
+        android:id="@+id/btnLogoutAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:text="Logout"/>
+</LinearLayout>

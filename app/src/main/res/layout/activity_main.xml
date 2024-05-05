@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/loginbkg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="200dp"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to the Quiz App"
+            android:textColor="@color/lavender"
+            android:textSize="40sp"
+            android:textAlignment="center" />
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:background="@drawable/logo"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="45dp"
+            android:contentDescription="logo" />
+
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:text="Start Quiz"
+            android:id="@+id/btnStartQuiz"
+            android:textSize="18sp"
+            app:cornerRadius = "30dp"/>
+        <Button
+            android:id="@+id/btnLogoutStudent"
+            android:layout_width="360dp"
+            android:layout_height="70dp"
+            android:text="Logout"
+            app:cornerRadius = "30dp"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+</LinearLayout>
