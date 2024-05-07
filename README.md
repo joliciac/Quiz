@@ -1,4 +1,4 @@
-                                                     **Quiz App using Firebase**
+                                                   **Quiz App using Firebase**
 
 I have created a simple quiz app that allows users to create an account based on if they are a student or administrator. Once they have created an account, they can login which will give them two different views. The admin will be able to add questions to the database and the student will be taking the quiz answer the questions. Each quiz attempt will be different questions as it is coded to be randomised so there is a bank of questions in the database.
 
