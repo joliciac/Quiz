@@ -24,7 +24,6 @@ class StudentActivity : AppCompatActivity() {
     private var score = 0
     private var selectedAnswers: MutableList<Int?> = mutableListOf()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStudentBinding.inflate(layoutInflater)
@@ -45,7 +44,7 @@ class StudentActivity : AppCompatActivity() {
                         val question = snapshot.getValue(Question::class.java)
                         question?.let { allQuestions.add(it) }
                     }
-                    selectRandomQuestions(5)  // Select 5 random questions
+                    selectRandomQuestions(5)
                 }
             }
 
@@ -68,12 +67,12 @@ class StudentActivity : AppCompatActivity() {
 
         if (questionsList.isNotEmpty()) {
             displayQuestion(0)
-            startTimer(3 * 60000)
+            startTimer(2 * 60000)
         }
     }
 
     private fun displayQuestion(index: Int) {
-        if (index in questionsList.indices) {  // Check if the index is valid
+        if (index in questionsList.indices) {
             val question = questionsList[index]
             binding.txtQuestion.text = question.text
             binding.txtDifficulty.text = "Difficulty: ${question.difficulty}"
@@ -127,7 +126,7 @@ class StudentActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                // Check the current question's answer before finishing
+                Log.d("StudentActivity", "Timer finished")
                 checkCurrentAnswer()
                 finishQuiz()
             }
@@ -138,24 +137,30 @@ class StudentActivity : AppCompatActivity() {
         val selectedRadioButtonId = binding.optionsRadioGroup.checkedRadioButtonId
         if (selectedRadioButtonId != -1) {
             val radioButton = findViewById<RadioButton>(selectedRadioButtonId)
-            val selectedIndex = radioButton.tag as Int
-            selectedAnswers[currentQuestionIndex] = selectedIndex
-            val correctOption = questionsList[currentQuestionIndex].correctOption
-            val correctOptionIndex =
-                questionsList[currentQuestionIndex].options.indexOf(questionsList[currentQuestionIndex].correctOption)
+            if (radioButton != null) {  // Check if the radioButton is not null
+                val selectedIndex = radioButton.tag as? Int  // Safe cast to Int
+                if (selectedIndex != null) {
+                    selectedAnswers[currentQuestionIndex] = selectedIndex
+                    val correctOption = questionsList[currentQuestionIndex].correctOption
+                    val correctOptionIndex = questionsList[currentQuestionIndex].options.indexOf(correctOption)
 
-            Log.d(
-                "StudentActivity",
-                "Checking answer: Selected Index=$selectedIndex, Correct Index=$correctOptionIndex, Selected Option='${radioButton.text}', Correct Option='$correctOption'"
-            )
-            if (selectedIndex == correctOptionIndex) {
-                score++
+                    Log.d("StudentActivity", "Checking answer: Selected Index=$selectedIndex, Correct Index=$correctOptionIndex, Selected Option='${radioButton.text}', Correct Option='$correctOption'")
+                    if (selectedIndex == correctOptionIndex) {
+                        score++
+                    }
+                } else {
+                    Log.d("StudentActivity", "RadioButton tag is not an integer")
+                }
+            } else {
+                Log.d("StudentActivity", "No RadioButton found for ID: $selectedRadioButtonId")
             }
+        } else {
+            Log.d("StudentActivity", "No RadioButton selected")
         }
     }
 
-
     private fun finishQuiz() {
+        Log.d("StudentActivity", "Finishing quiz")
         timer.cancel()
 
         val feedbackBuilder = StringBuilder()
